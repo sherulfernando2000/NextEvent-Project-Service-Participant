@@ -10,10 +10,10 @@
     </parent>
 
     <groupId>lk.ijse.eca</groupId>
-    <artifactId>Student-Service</artifactId>
+    <artifactId>Participant-Service</artifactId>
     <version>1.0.0</version>
-    <name>Student-Service</name>
-    <description>Student-Service</description>
+    <name>Participant-Service</name>
+    <description>Participant-Service</description>
 
     <properties>
         <java.version>25</java.version>
