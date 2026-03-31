@@ -1,12 +1,35 @@
-# Student-Service
+# 👥 Participant-Service (NextEvent Project)
 
-A microservice responsible for managing student records, including profile information and profile pictures. It exposes a RESTful API consumed by the API Gateway.
+A microservice responsible for managing participant records, including profile information.  
+It exposes a RESTful API consumed by the API Gateway.
 
-## About
+---
 
-This project is part of the Enterprise Cloud Application (ECA) module in the Higher Diploma in Software Engineering (HDSE) program at the Institute of Software Engineering (IJSE). It is intended exclusively for students enrolled in this program.
+## 👤 Student Information
 
-## Tech Stack
+- **Student Name:** Sherul Dhanushka Fernando
+- **Student Number:** 2301691014
+- **Slack Handle:** https://ijse-eca-hdse-69-70.slack.com/team/U0AEH8NS9DW
+- **GCP Project ID:** project-0ae0d75b-3979-4ebf-be9
+
+---
+
+## 📝 About
+
+The **Participant-Service** is responsible for managing all participant-related data in the NextEvent system.
+
+It allows:
+
+- Creating participant profiles
+- Managing participant details
+- Retrieving participant information
+- Deleting participant records
+
+All requests are routed through the **API Gateway**, and the service registers with the **Service-Registry (Eureka)**.
+
+---
+
+## 🛠 Tech Stack
 
 | Technology | Details |
 |---|---|
@@ -18,32 +41,36 @@ This project is part of the Enterprise Cloud Application (ECA) module in the Hig
 | MapStruct | DTO ↔ Entity mapping |
 | Lombok | Boilerplate reduction |
 | Spring Validation | Bean validation |
-| Spring Cloud Netflix Eureka Client | Service registration & discovery |
-| Spring Cloud Config Client | Fetches config from Config-Server |
+| Eureka Client | Service registration & discovery |
+| Config Client | Fetches config from Config-Server |
 | Spring Boot Actuator | Health & management endpoints |
 
-## Service Details
+---
+
+## 🌐 Service Details
 
 | Property | Value |
 |---|---|
-| Port | `8000` |
-| Artifact ID | `Student-Service` |
+| Port | `8003` |
+| Artifact ID | `Participant-Service` |
 | Group ID | `lk.ijse.eca` |
 | Database | PostgreSQL — `jdbc:postgresql://localhost:12500/eca` |
-| Picture Storage | `~/.ijse/eca/students/` |
 
-## API Endpoints
+---
 
-Base path: `/api/v1/students`
+## 📡 API Endpoints
+
+Base path: `/api/v1/participants`
 
 | Method | Path | Description | Content-Type |
 |---|---|---|---|
-| `POST` | `/api/v1/students` | Create a new student | `multipart/form-data` |
-| `GET` | `/api/v1/students` | Get all students | — |
-| `GET` | `/api/v1/students/{nic}` | Get a student by NIC | — |
-| `PUT` | `/api/v1/students/{nic}` | Update a student | `multipart/form-data` |
-| `DELETE` | `/api/v1/students/{nic}` | Delete a student | — |
-| `GET` | `/api/v1/students/{nic}/picture` | Get a student's profile picture | — |
+| `POST` | `/api/v1/participants` | Create a new participant | `application/json` |
+| `GET` | `/api/v1/participants` | Get all participants | — |
+| `GET` | `/api/v1/participants/{participantId}` | Get participant by ID | — |
+| `PUT` | `/api/v1/participants/{participantId}` | Update participant | `application/json` |
+| `DELETE` | `/api/v1/participants/{participantId}` | Delete participant | — |
+
+---
 
 > **NIC format:** `^\d{9}[vV]$` — 9 digits followed by `V` or `v` (e.g., `123456789V`). NIC is the primary key and cannot be changed after creation.
 
@@ -51,7 +78,7 @@ Base path: `/api/v1/students`
 
 > Requests must use `Content-Type: multipart/form-data`.
 
-**POST / PUT** `/api/v1/students`
+**POST / PUT** `/api/v1/participants`
 
 | Field | Type | Required | Validation |
 |---|---|---|---|
@@ -67,11 +94,11 @@ Base path: `/api/v1/students`
 ```json
 {
   "nic": "123456789V",
-  "name": "Kasun Perera",
-  "address": "123 Main Street, Colombo",
+  "name": "Kamal Perera",
+  "address": "Peter's road, Maggona.",
   "mobile": "0771234567",
-  "email": "kasun@example.com",
-  "picture": "/api/v1/students/123456789V/picture"
+  "email": "kamal@example.com",
+  "picture": "/api/v1/participants/123456789V/picture"
 }
 ```
 
@@ -95,7 +122,7 @@ Follow the lecture guidelines, refer to the lecture video for more information a
 
 A Postman collection is available for testing the API endpoints:
 
-**Student Service:** [Open Collection](https://www.postman.com/ijse-eca-5768309/workspace/eca-69-70/collection/47280517-c0d82f07-2650-4406-9dae-4f7ceab70669?action=share&creator=47280517)
+**Student Service:** [Open Collection](https://sherul.postman.co/workspace/classroom~67e69d15-9d52-4dc5-b136-621917174743/collection/40383343-f31980a0-d56c-4142-af12-46625f10feab?action=share&creator=40383343)
 
 ## Need Help?
 
